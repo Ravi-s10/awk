@@ -31,33 +31,82 @@ awk 'BEGIN {FS="," ; OFS="-"} {print $2} END {print "ok"} ' filename
 # Record Seprator in awk (RS)
 
 file1- apple 12 av : mango 20 nav : baanan 25 av
-file2 - Kapil,25,ok | ayush,28,ok | ravi,28,ok
+file2 - Kapi,25,ok | ayansh,28,ok | Ramesh,28,ok
 
 # Comamnd
 awk 'BEGIN {RS=":"} {print $1}' file1 
 # Output
-apple
-mango
-banana
+# apple
+# mango
+# banana
 
 # Command
 awk 'BEGIN {RS="|"} {print $1} ' file2
 
 # Output 
-Kapi,25,ok
-ayansh,28,ok
-Ramehs,28,ok
+# Kapi,25,ok
+# ayansh,28,ok
+# Ramehs,28,ok
 
 # Command 
 awk 'BEGIN {RS="|";FS=","} {print $2} ' file2
 # Output
-25
-28
-28
+# 25
+# 28
+# 28
+
+# Output Field seprator (ORS)
+
+# Command 
+awk 'BEGIN {FS=",";RS="|";OFS="+";ORS="#"} {print $1,$2}' file2
+
+# Output 
+Kapi+25# ayansh+28# Ramesh+28#
+
+# Getting No of filed in each line (NF)
+
+# Example
+# Filed1  Filed2  Filed3
+# Mango   Dog     fish   monkey - Record 1
+# Banana  Cat     shark  python snake gorilla - Record 2
+# Orange  Rat     - Record 3
+
+# Command
+awk '{print NF}' file
+
+# Output
+# 4
+# 6
+# 2
+
+# No of record (NR)
+
+# Command  taking example of above file
+
+awk '{print NR }' file
+ # Output 
+# 1
+# 2
+# 3
+
+# Regular Expressions in awk
+
+# TO print a matching line
+
+awk '/string/ {print $1}' file
+
+# Match anything f.n (. means single alpabet)
+awk '/f.n/ {print $2}' file
+awk '/$a/ {print $1}' file
+awk '/Done$/ {print $4}' data
+# Complete comamnd
+awk '$0 ~ /fan/ {print $2}' file # $0 mean whole file and $1 means first filed
+awk '$0 !~ /Done$/ {print $3} ' file
+
+awk '/[A]ll/ {print $2}' file
+awk '/^[A]ll/ ' file - nagation
 
 
-
-
-
+# Arithmetic operation using awk
 
 
