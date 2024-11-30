@@ -95,7 +95,7 @@ awk '{print NR }' file
 
 awk '/string/ {print $1}' file
 
-# Match anything f.n (. means single alpabet)
+# Match anything f.n . means sigle charcter
 awk '/f.n/ {print $2}' file
 awk '/$a/ {print $1}' file
 awk '/Done$/ {print $4}' data
