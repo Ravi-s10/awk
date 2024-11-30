@@ -157,14 +157,81 @@ print "No of emp from Delhi " delhi
 print "No of emp from Goa " goa
 }
 
+# Output
+No of emp from Delhi 4
+No of emp from Goa 4
+
+
+# Name,Id,Score
+# Ram,1,87
+# Shaym,2,98
+# Ganes,3,86
+# Mahesh,4,58
+# Suresh,5,12
+# Sammi,6,34
+
+
+# Script to check result status
+
+BEGIN {
+FS=","
+}
+{
+if ($3 > 90) 
+{
+print $1 " Got First Divison"
+}
+else if ($3 > 20 && $3 <50 )
+{
+print $1 " Got failed"
+}
+else {
+
+print $1 " Got Pass"
+}
+}
+
+
+# Output 
+Name Got First Divison
+Ram Got Pass
+Shaym Got First Divison
+Ganes Got Pass
+Mahesh Got Pass
+Suresh Got Pass
+Sammi Got failed
 
 
 
 
 
+# While loop in awk
+{
+i=0
+sum=0
 
+while (i <= NF) 
+{
+sum=sum+$i
+i++
+}
+print sum
 
+}
 
+# using awk with functions
+function myfucntion() 
+{
+print "username %s has a id %s \n", $1,$3
+}
+
+BEGIN {
+FS=","
+
+}
+{
+myfunction()
+}
 
 
 
