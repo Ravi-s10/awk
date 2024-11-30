@@ -98,7 +98,7 @@ awk '/string/ {print $1}' file
 # Match anything f.n . means sigle charcter
 awk '/f.n/ {print $2}' file
 awk '/$a/ {print $1}' file
-awk '/D$/ {print $4}' file
+
 # Complete comamnd
 awk '$0 ~ /fan/ {print $2}' file - $0 mean whole file and $1 means first filed
 awk '$0 !~ /Done$/ {print $3} ' file
