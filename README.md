@@ -113,3 +113,67 @@ awk  --profile 'BEGIN {ORS=" "} {sum+=$1;sum2+=$2;sum3+=$3;sum4+=4;sum5+=$5} END
 
 # calculate average
  awk '{sum=sum+$1;count++ } END {print sum/count}' nuber2
+
+ # Count parameter in awk
+
+ awk 'BEGIN {count=0} /Swati-*/ {count++} END {print "Matching line witn Swati is " count}' data
+
+  awk 'BEGIN {count=0} $1 ~ /issuerfocus-*/ {count++} END {print "Number of issuerfocus line are " count}' data
+
+  # if else in awk
+# Example file
+# name,location,id
+# rahul,delhi,123
+# paresh,delhi,123
+# Shyam,delhi,123
+# suresh,delhi,567
+# Kamlesh,Goa,468
+# Ayansh,Goa,468
+# Mathu,Goa,468
+# Magesh,Goa,468
+
+# awk script to get count of location
+BEGIN {
+FS=","
+goa=0
+delhi=0
+ }
+
+{
+
+if ($2 == "Goa")
+{
+goa++
+}
+else
+{
+delhi++
+}
+
+}
+
+END {
+print "No of emp from Delhi " delhi
+print "No of emp from Goa " goa
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
