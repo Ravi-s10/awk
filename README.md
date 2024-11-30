@@ -108,5 +108,8 @@ awk '/^[A]ll/ ' file - nagation
 
 
 # Arithmetic operation using awk
+# Adding number of multiple fileds
+awk  --profile 'BEGIN {ORS=" "} {sum+=$1;sum2+=$2;sum3+=$3;sum4+=4;sum5+=$5} END {print sum5 ;print sum4 ;print sum3;print sum2 ;print sum }' number.txt
 
-
+# calculate average
+ awk '{sum=sum+$1;count++ } END {print sum/count}' nuber2
